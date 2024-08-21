@@ -99,8 +99,8 @@ class Trend
                 {$this->getSqlDate()} AT TIME ZONE '" . config('app.admin_timezone') . "' as {$this->dateAlias},
                 {$aggregate}({$column}) as aggregate
             ")
-//            ->whereBetween($this->dateColumn, [$this->start, $this->end])
-            ->whereRaw($this->dateColumn . " AT TIME ZONE '" . config('app.admin_timezone') . "' BETWEEN '" . $this->start . "' AND '" . $this->end . "'")
+            ->whereBetween($this->dateColumn, [$this->start, $this->end])
+//            ->whereRaw($this->dateColumn . " AT TIME ZONE '" . config('app.admin_timezone') . "' BETWEEN '" . $this->start . "' AND '" . $this->end . "'")
             ->groupBy($this->dateAlias)
             ->orderBy($this->dateAlias)
             ->get();
